@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syed ismail shah</title>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+   
+<style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .slider {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+            overflow: hidden;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        .slide img {
+            width: 100%;
+            display: block;
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slider">
+        <div class="slides">
+          <center>Click on iamges to visit</center>
+            <br>
+            <div class="slide"><a href="https://ahsancorporation.com/"><img src="images/latest-work/work-1.png" alt="work-1"></a></div>
+            <div class="slide"><a href="http://www.ismailcoding.lovestoblog.com/"><img src="images/latest-work/work-2.png" alt="work-2"></a></div>
+            <div class="slide"><a href="#"><img src="images/latest-work/work-3.jpg" alt="work-3"></a></div>
+        </div>
+        <button class="prev" onclick="moveSlides(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlides(1)">&#10095;</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        let currentSlide = 0;
+
+        function showSlides() {
+            let slides = document.querySelectorAll('.slide');
+            if (currentSlide >= slides.length) {
+                currentSlide = 0;
+            }
+            if (currentSlide < 0) {
+                currentSlide = slides.length - 1;
+            }
+            let newTransform = -currentSlide * 100 + '%';
+            $('.slides').css('transform', 'translateX(' + newTransform + ')');
+        }
+
+        function moveSlides(n) {
+            currentSlide += n;
+            showSlides();
+        }
+
+        // Initialize the slider
+        $(document).ready(function() {
+            showSlides();
+        });
+    </script>
+
+    <footer>
+        <div class="center-items">
+            
+            <div class="btn_sec">
+                <h5>Leave me a message in</h5>
+                <h2>Ismailcoding@gmail.com</h2>
+            </div>
+            <p class="space"> <span class="orange-highlight">©Ismail Coding.</span> || Your flexible friend.</p>
+        </div>
+
+    </footer>
+</body>
+
+</html>
